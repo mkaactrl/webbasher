@@ -1,0 +1,6 @@
+// ⚠️ Warning: Running this will freeze or crash the page.
+// You’ve been warned, brh 🥀
+
+while (true) {
+    console.log("webbashed ezzz");
+}
