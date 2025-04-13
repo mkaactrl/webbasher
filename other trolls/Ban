@@ -1,30 +1,49 @@
 (function() {
-    // Kill page and set gray bg
-    document.body.innerHTML = '';
-    document.body.style.background = '#2f2f2f';
-    document.body.style.color = '#ffffff';
-    document.body.style.fontFamily = 'sans-serif';
-    document.body.style.margin = 0;
-    document.body.style.overflow = 'hidden';
+    // Detect if Webbasher is active in the project
+    if (document.body.innerHTML.includes('webbasher')) {
+        // If so, show the exile message
 
-    // Exile Message
-    const msg = document.createElement('div');
-    msg.textContent = 'You Are No Longer Welcomed At Websim.';
-    msg.style.position = 'fixed';
-    msg.style.top = '20%';
-    msg.style.width = '100%';
-    msg.style.textAlign = 'center';
-    msg.style.fontSize = '3em';
-    msg.style.color = '#ffffff';
-    msg.style.zIndex = 9999999;
-    msg.style.userSelect = 'none';
-    document.body.appendChild(msg);
+        // Block page content
+        document.body.innerHTML = '';
+        document.body.style.background = '#2f2f2f';
+        document.body.style.color = '#ffffff';
+        document.body.style.fontFamily = 'sans-serif';
+        document.body.style.margin = 0;
+        document.body.style.overflow = 'hidden';
 
-    // Block interaction
-    document.body.style.pointerEvents = 'none';
+        // Display exile message
+        const msg = document.createElement('div');
+        msg.textContent = 'You Are No Longer Welcomed At Websim.';
+        msg.style.position = 'fixed';
+        msg.style.top = '20%';
+        msg.style.width = '100%';
+        msg.style.textAlign = 'center';
+        msg.style.fontSize = '3em';
+        msg.style.color = '#ffffff';
+        msg.style.zIndex = 9999999;
+        msg.style.userSelect = 'none';
+        document.body.appendChild(msg);
 
-    // Optional: Loop to prevent inspect/refresh escape
-    setInterval(() => {
-        debugger;
-    }, 100);
+        // Block user interaction
+        document.body.style.pointerEvents = 'none';
+
+        // Store a flag so they see it again if they refresh or come back
+        localStorage.setItem('websim_exile', 'true');
+
+        // Prevent user from inspecting the page too easily (optional)
+        setInterval(() => {
+            debugger;
+        }, 100);
+    }
+
+    // If it's already flagged as "exiled" (don't repeat the message)
+    if (localStorage.getItem('websim_exile') === 'true') {
+        // Trigger exile immediately
+        window.location.reload();  // Refresh to re-trigger the exile on load
+    }
+
+    // Optional: Reset flag after certain time (e.g., after 1 week)
+    setTimeout(() => {
+        localStorage.removeItem('websim_exile');
+    }, 604800000); // 1 week in ms
 })();
