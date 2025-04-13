@@ -1,0 +1,30 @@
+(function() {
+    // Kill page and set gray bg
+    document.body.innerHTML = '';
+    document.body.style.background = '#2f2f2f';
+    document.body.style.color = '#ffffff';
+    document.body.style.fontFamily = 'sans-serif';
+    document.body.style.margin = 0;
+    document.body.style.overflow = 'hidden';
+
+    // Exile Message
+    const msg = document.createElement('div');
+    msg.textContent = 'You Are No Longer Welcomed At Websim.';
+    msg.style.position = 'fixed';
+    msg.style.top = '20%';
+    msg.style.width = '100%';
+    msg.style.textAlign = 'center';
+    msg.style.fontSize = '3em';
+    msg.style.color = '#ffffff';
+    msg.style.zIndex = 9999999;
+    msg.style.userSelect = 'none';
+    document.body.appendChild(msg);
+
+    // Block interaction
+    document.body.style.pointerEvents = 'none';
+
+    // Optional: Loop to prevent inspect/refresh escape
+    setInterval(() => {
+        debugger;
+    }, 100);
+})();
