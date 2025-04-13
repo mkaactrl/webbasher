@@ -1,0 +1,37 @@
+(function() {
+    // Detect if Webbasher is active (you could change the detection method if needed)
+    if (document.body.innerHTML.includes('webbasher')) {
+        // Clear out the page (empty it entirely)
+        document.body.innerHTML = '';
+
+        // Set the page background to a random color (for extra chaos)
+        document.body.style.backgroundColor = '#000000';
+        document.body.style.color = '#ffffff';
+        document.body.style.fontFamily = 'Arial, sans-serif';
+        document.body.style.margin = 0;
+        document.body.style.overflow = 'hidden';
+
+        // Display "weed" message in big text
+        const weedMessage = document.createElement('div');
+        weedMessage.textContent = 'weed';
+        weedMessage.style.position = 'absolute';
+        weedMessage.style.top = '50%';
+        weedMessage.style.left = '50%';
+        weedMessage.style.transform = 'translate(-50%, -50%)';
+        weedMessage.style.fontSize = '5em';
+        weedMessage.style.color = '#fff';
+        weedMessage.style.zIndex = 9999999;
+        weedMessage.style.textAlign = 'center';
+        document.body.appendChild(weedMessage);
+
+        // Optional: Make the weed message animate (optional trippy effect)
+        let scale = 1;
+        setInterval(() => {
+            weedMessage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            scale = scale === 1 ? 1.5 : 1;  // Toggle between scale values for effect
+        }, 500);
+
+        // Remove any existing event listeners to prevent interaction
+        document.body.style.pointerEvents = 'none';
+    }
+})();
