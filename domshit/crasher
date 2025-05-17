@@ -12,6 +12,6 @@ setTimeout(() => {
     document.body.appendChild(div);
 
     // Fake system crash message
-    document.title = "💀 FATAL ERROR 💀";
+    document.title = "get fucked by G00BY!!";
   }
 }, 1500); // wait 1.5s then boom
